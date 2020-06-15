@@ -31,4 +31,17 @@ final public class Helper: NSObject {
         return data
     }
     
+    static func covertDateToString(date:Double) -> String {
+       
+            let date = Date(timeIntervalSince1970: date)
+            let dateFormatter = DateFormatter()
+//            dateFormatter.timeStyle = DateFormatter.Style.medium //Set time style
+//            dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
+            dateFormatter.dateFormat = "MMM dd YYYY HH:MM a"
+
+            dateFormatter.timeZone = .current
+            let localDate = dateFormatter.string(from: date)
+           return localDate
+    }
+    
 }

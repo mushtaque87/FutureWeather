@@ -14,7 +14,7 @@ class WeatherForecastTableViewCell: UITableViewCell {
     @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var dt_txt: UILabel!
     @IBOutlet weak var temp: UILabel!
-    @IBOutlet weak var humidity: UILabel!
+    @IBOutlet weak var name: UILabel!
     @IBOutlet weak var icon: UIImageView!
     
     override func awakeFromNib() {

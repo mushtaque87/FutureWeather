@@ -43,15 +43,14 @@ extension CurrentCityViewController : UITableViewDelegate, UITableViewDataSource
         cell.main.text = weather.weather?[0].main
         cell.desc.text =  weather.weather?[0].description
         cell.temp.text = String(format:"%.1f",weather.main?.temp as! CVarArg)
-       // cell.humidity.isHidden = true
-       // cell.humidity.text = String(format:"%d %", weather.main?.humidity as! CVarArg)
         cell.icon.image = cell.setImage(for: (weather.weather?[0].main)!)
-        cell.dt_txt.text = weather.dt_txt
+        cell.dt_txt.text = Helper.covertDateToString(date: weather.dt!)
+        cell.name.isHidden = true
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 140
     }
 }
     

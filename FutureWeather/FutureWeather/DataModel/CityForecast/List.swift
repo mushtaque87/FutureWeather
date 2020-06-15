@@ -13,7 +13,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 import Foundation
 struct List : Codable {
-	let dt : Int?
+	let dt : Double?
 	let main : Main?
 	let weather : [Weather]?
 	let clouds : Clouds?
@@ -34,7 +34,7 @@ struct List : Codable {
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		dt = try values.decodeIfPresent(Int.self, forKey: .dt)
+		dt = try values.decodeIfPresent(Double.self, forKey: .dt)
 		main = try values.decodeIfPresent(Main.self, forKey: .main)
 		weather = try values.decodeIfPresent([Weather].self, forKey: .weather)
 		clouds = try values.decodeIfPresent(Clouds.self, forKey: .clouds)

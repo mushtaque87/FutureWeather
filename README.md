@@ -4,12 +4,6 @@ Know the weather of your city and search other cities
 
 ![HeaderImage](futureweather.png)
 
-Unit Tests :
-
-Run the unit test from the top bar to see the the unit test passing. The approch followed is TDD with Red Green Refactor with Depedency Injection to mock the service to speed up unit test. 
-
----------------------------------------------------
-
 Location from Simulator: 
 
 When the app Launches The CoreLocation finds the device location and fetch the forecast weather for the next 5 Days with an iterval of 3 hours from the API of OpenWeather 
@@ -26,5 +20,15 @@ The user can search for a minimum of 3 and max of 7 cities . The network call is
 ![Search for Cities](Search.gif)
 
 
+----------------------------------------------------
+Unit Tests :
 
+Run the unit test from the top bar to see the the unit test passing. The approch followed is TDD with Red Green Refactor with Depedency Injection to mock the service to speed up unit test. 
+
+---------------------------------------------------
+Code Coverage:
+
+Go to Edit Scheme and unable the Code Coverage in order to see the code coverage as shown below
+
+![HeaderImage](CodeCoverage.png)
 

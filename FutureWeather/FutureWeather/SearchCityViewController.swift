@@ -48,9 +48,14 @@ extension SearchCityViewController : UITableViewDelegate, UITableViewDataSource 
         let weather = self.viewModel.cityWeathertList[indexPath.row]
         cell.main.text = weather.weather?[0].main
         cell.desc.text =  weather.weather?[0].description
-        cell.temp.text = String(format:"%.1f",weather.main?.temp as! CVarArg)
-       // cell.humidity.isHidden = true
-       // cell.humidity.text = String(format:"%d %", weather.main?.humidity as!s CVarArg)
+        cell.temp.isHidden = true
+        cell.mintemp.isHidden = false
+        cell.maxtemp.isHidden = false
+        cell.wind.isHidden = false
+        cell.mintemp.text = String(format:"%.1f min",weather.main?.temp_min as! CVarArg)
+        cell.maxtemp.text = String(format:"%.1f max",weather.main?.temp_max as! CVarArg)
+        cell.wind.text =  String(format:"%.1f speed",weather.wind?.speed as! CVarArg)
+ 
         cell.icon.image = cell.setImage(for: (weather.weather?[0].main)!)
         cell.dt_txt.text = Helper.covertDateToString(date: weather.dt!)
         cell.name.text = weather.name

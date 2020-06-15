@@ -14,6 +14,9 @@ class WeatherForecastTableViewCell: UITableViewCell {
     @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var dt_txt: UILabel!
     @IBOutlet weak var temp: UILabel!
+    @IBOutlet weak var mintemp: UILabel!
+    @IBOutlet weak var maxtemp: UILabel!
+    @IBOutlet weak var wind: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var icon: UIImageView!
     

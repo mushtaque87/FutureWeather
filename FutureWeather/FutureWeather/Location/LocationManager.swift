@@ -23,10 +23,7 @@ class LocationManager : NSObject, CLLocationManagerDelegate {
 
     override init() {
         super.init()
-//        self.locationManager.requestWhenInUseAuthorization()
-       // self.locationManager.requestAlwaysAuthorization()
         if CLLocationManager.locationServicesEnabled() {
-           // locationManager = CLLocationManager()
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
@@ -43,7 +40,7 @@ class LocationManager : NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
-
+        
     
     
 }

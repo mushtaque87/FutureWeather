@@ -36,6 +36,8 @@
 		88604008249755860015C8ED /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88604007249755850015C8ED /* LocationManager.swift */; };
 		8860400A24976B410015C8ED /* CityWeatherForecast.json in Resources */ = {isa = PBXBuildFile; fileRef = 8860400924976B410015C8ED /* CityWeatherForecast.json */; };
 		8860400C24976B800015C8ED /* FutureWeatherCityWeatherForecastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860400B24976B800015C8ED /* FutureWeatherCityWeatherForecastTests.swift */; };
+		88604010249772240015C8ED /* WeatherForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860400E249772240015C8ED /* WeatherForecastTableViewCell.swift */; };
+		88604011249772240015C8ED /* WeatherForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8860400F249772240015C8ED /* WeatherForecastTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		88604007249755850015C8ED /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		8860400924976B410015C8ED /* CityWeatherForecast.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CityWeatherForecast.json; sourceTree = "<group>"; };
 		8860400B24976B800015C8ED /* FutureWeatherCityWeatherForecastTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutureWeatherCityWeatherForecastTests.swift; sourceTree = "<group>"; };
+		8860400E249772240015C8ED /* WeatherForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastTableViewCell.swift; sourceTree = "<group>"; };
+		8860400F249772240015C8ED /* WeatherForecastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherForecastTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 		88603FA6249745E90015C8ED /* FutureWeather */ = {
 			isa = PBXGroup;
 			children = (
+				8860400D249771F80015C8ED /* UITableViewCells */,
 				886040062497556B0015C8ED /* Location */,
 				88603FE824974BCE0015C8ED /* DataManager */,
 				88603FE52497483D0015C8ED /* Common */,
@@ -229,6 +234,15 @@
 			path = Location;
 			sourceTree = "<group>";
 		};
+		8860400D249771F80015C8ED /* UITableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				8860400E249772240015C8ED /* WeatherForecastTableViewCell.swift */,
+				8860400F249772240015C8ED /* WeatherForecastTableViewCell.xib */,
+			);
+			path = UITableViewCells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -314,6 +328,7 @@
 				88603FB3249745EC0015C8ED /* Assets.xcassets in Resources */,
 				88603FB1249745E90015C8ED /* Main.storyboard in Resources */,
 				88603FE7249748E10015C8ED /* CityWeather.json in Resources */,
+				88604011249772240015C8ED /* WeatherForecastTableViewCell.xib in Resources */,
 				8860400A24976B410015C8ED /* CityWeatherForecast.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +368,7 @@
 				88603FD1249746DA0015C8ED /* CurrentCityViewModel.swift in Sources */,
 				88603FE2249747E40015C8ED /* Main.swift in Sources */,
 				88603FD3249746F10015C8ED /* SearchCityViewModel.swift in Sources */,
+				88604010249772240015C8ED /* WeatherForecastTableViewCell.swift in Sources */,
 				88604003249750FD0015C8ED /* CustomDecoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

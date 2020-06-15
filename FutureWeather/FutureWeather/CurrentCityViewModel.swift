@@ -11,12 +11,11 @@ import CoreLocation
 class CurrentCityViewModel: NSObject , LocationDelegate {
    
     
-    
-    let network = NetworkManager(with: HttpClient(session: URLSession(configuration: URLSessionConfiguration.default)))
     var currentLocation : CLLocation?
     var networkManager : NetworkManager?
     let locationManager  = LocationManager()
-
+    lazy var forecastList = [List]()
+    weak var delegate: WeatherForecastVCDelegate?
 
     
     init(networkManager : NetworkManager) {
@@ -35,11 +34,19 @@ class CurrentCityViewModel: NSObject , LocationDelegate {
     
     func fetchCurrentCityWeatherForecast(with location:CLLocation) {
         let url = URL(string:String(format: Constants.ServerApi.getCityWeatherForecast, location.coordinate.latitude,location.coordinate.longitude))!
-        self.networkManager?.fetchCurrentCityWeatherForecast(url:url , onSuccess: { (weather) in
-            print(weather)
+        self.networkManager?.fetchCurrentCityWeatherForecast(url:url , onSuccess: { (forecast) in
+            //print(forecast)
+            if let list =  forecast.list {
+                self.forecastList = list
+                DispatchQueue.main.async {
+                    self.delegate?.reloadTableView()
+                }
+            }
         }, onFailure: { (error) in
             print(error)
         })
     }
     
 }
+
+

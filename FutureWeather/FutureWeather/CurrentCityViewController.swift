@@ -8,16 +8,50 @@
 
 import UIKit
 
+protocol WeatherForecastVCDelegate : class {
+    func reloadTableView()
+}
 
-class CurrentCityViewController: UIViewController {
-   
-    private var viewModel = CurrentCityViewModel(networkManager:NetworkManager(with:HttpClient(session: URLSession(configuration: URLSessionConfiguration.default))))
+
+class CurrentCityViewController: UIViewController , WeatherForecastVCDelegate {
+    @IBOutlet weak var weatherForecastTableView: UITableView!
+
+     var viewModel = CurrentCityViewModel(networkManager:NetworkManager(with:HttpClient(session: URLSession(configuration: URLSessionConfiguration.default))))
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.weatherForecastTableView?.register(UINib(nibName: "WeatherForecastTableViewCell", bundle: nil), forCellReuseIdentifier: "weatherCell")
+        self.weatherForecastTableView.delegate = self
+        self.weatherForecastTableView.dataSource = self
+        viewModel.delegate = self
         // Do any additional setup after loading the view.ss
     }
 
-
+    func reloadTableView() {
+        self.weatherForecastTableView.reloadData()
+      }
 }
 
+extension CurrentCityViewController : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.viewModel.forecastList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath) as! WeatherForecastTableViewCell
+        let weather = self.viewModel.forecastList[indexPath.row]
+        cell.main.text = weather.weather?[0].main
+        cell.desc.text =  weather.weather?[0].description
+        cell.temp.text = String(format:"%.1f",weather.main?.temp as! CVarArg)
+       // cell.humidity.isHidden = true
+       // cell.humidity.text = String(format:"%d %", weather.main?.humidity as! CVarArg)
+        cell.icon.image = cell.setImage(for: (weather.weather?[0].main)!)
+        cell.dt_txt.text = weather.dt_txt
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+}
+    

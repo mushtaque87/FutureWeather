@@ -68,8 +68,19 @@ extension SearchCityViewController : UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.viewModel.cityWeathertList.removeAll()
         searchBar.resignFirstResponder()
-        self.viewModel.fetchSearchedCityWeather(with: searchBar.text!)
-    }
+        let cities = Helper.parseCityName(from: searchBar.text!.trimmingCharacters(in: .whitespaces))
+        guard cities.count > 1 else {
+            return
+        }
+        //  let networkQueue = OperationQueue()
+
+        cities.forEach { (city) in
+            DispatchQueue.global().async {
+                self.viewModel.fetchSearchedCityWeather(with: String(city).trimmingCharacters(in: .whitespaces))
+                }
+            }
+        }
+        
 }
 
 

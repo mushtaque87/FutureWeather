@@ -22,6 +22,7 @@ class SearchCityViewModel: NSObject {
     
     func fetchSearchedCityWeather(with cityName:String) {
         let url = URL(string:String(format: Constants.ServerApi.getCurrentCityWeather, cityName))!
+        print(url)
         self.networkManager?.fetchCityWeather(url:url , onSuccess: { (weather) in
             self.cityWeathertList.append(weather)
                 DispatchQueue.main.async {

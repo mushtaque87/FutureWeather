@@ -35,13 +35,18 @@ final public class Helper: NSObject {
        
             let date = Date(timeIntervalSince1970: date)
             let dateFormatter = DateFormatter()
-//            dateFormatter.timeStyle = DateFormatter.Style.medium //Set time style
-//            dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
             dateFormatter.dateFormat = "MMM dd YYYY HH:MM a"
 
             dateFormatter.timeZone = .current
             let localDate = dateFormatter.string(from: date)
            return localDate
+    }
+    
+    static func parseCityName(from text:String) -> [String] {
+        let cities = text.split(separator: ",").map { (item) -> String    in
+            return  item.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+        return cities.count > 3 && cities.count < 7 ? cities : []
     }
     
 }

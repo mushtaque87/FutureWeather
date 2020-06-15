@@ -31,6 +31,11 @@ class SearchCityViewController: UIViewController, WeatherForecastVCDelegate {
         self.cityWeatherTableView.reloadData()
     }
 
+    func showAlert() {
+        let alert = UIAlertController(title: "Alert", message: "Please enter minimum 3 Cities and maximum 7 cities", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension SearchCityViewController : UITableViewDelegate, UITableViewDataSource {
@@ -70,6 +75,7 @@ extension SearchCityViewController : UISearchBarDelegate {
         searchBar.resignFirstResponder()
         let cities = Helper.parseCityName(from: searchBar.text!.trimmingCharacters(in: .whitespaces))
         guard cities.count > 1 else {
+            self.showAlert()
             return
         }
         //  let networkQueue = OperationQueue()

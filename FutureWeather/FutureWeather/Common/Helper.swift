@@ -46,7 +46,7 @@ final public class Helper: NSObject {
         let cities = text.split(separator: ",").map { (item) -> String    in
             return  item.trimmingCharacters(in: .whitespacesAndNewlines)
         }
-        return cities.count > 3 && cities.count < 7 ? cities : []
+        return cities.count >= 3 && cities.count <= 7 ? cities : []
     }
     
 }

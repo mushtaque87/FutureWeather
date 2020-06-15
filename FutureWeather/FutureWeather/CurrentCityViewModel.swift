@@ -6,18 +6,40 @@
 //  Copyright © 2020 Mushtaque Ahmed. All rights reserved.
 //
 
-import UIKit
-
-class CurrentCityViewModel: NSObject {
+import Foundation
+import CoreLocation
+class CurrentCityViewModel: NSObject , LocationDelegate {
+   
+    
     
     let network = NetworkManager(with: HttpClient(session: URLSession(configuration: URLSessionConfiguration.default)))
-    
-    let networkManager : NetworkManager
-//    let dataManager : Datamanager
+    var currentLocation : CLLocation?
+    var networkManager : NetworkManager?
+    let locationManager  = LocationManager()
+
 
     
     init(networkManager : NetworkManager) {
-           self.networkManager = networkManager
-//           self.dataManager = dataManager
-       }
+        super.init()
+        self.networkManager = networkManager
+        self.locationManager.delegate = self
+    }
+    
+    func sendLocation(with location: CLLocation?) {
+        if let loc = location {
+            print(loc)
+            fetchCurrentCityWeatherForecast(with: loc)
+        }
+           
+    }
+    
+    func fetchCurrentCityWeatherForecast(with location:CLLocation) {
+        let url = URL(string:String(format: Constants.ServerApi.getCityWeatherForecast, location.coordinate.latitude,location.coordinate.longitude))!
+        self.networkManager?.fetchCurrentCityWeatherForecast(url:url , onSuccess: { (weather) in
+            print(weather)
+        }, onFailure: { (error) in
+            print(error)
+        })
+    }
+    
 }

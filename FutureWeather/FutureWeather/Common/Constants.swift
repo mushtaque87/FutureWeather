@@ -16,7 +16,10 @@ struct Constants {
     
     struct ServerApi {
         //All the micro service APIs can be kept at one place.
-        static let baseUrl = "https://api.openweathermap.org/data/2.5/weather?"
-        static let getCurrentCity = baseUrl + "q=%@&appid=\(Constants.APIKey)"
+        static let baseUrl = "https://api.openweathermap.org/data/2.5/"
+        static let getCurrentCityWeather = baseUrl + "weather?q=%@&appid=\(Constants.APIKey)"
+        static let getCityWeatherForecast = baseUrl + "forecast?lat=%f&lon=%f&appid=\(Constants.APIKey)"
+
+        
     }
 }

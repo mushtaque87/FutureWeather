@@ -16,8 +16,8 @@ class NetworkManager {
         self.httpClient = httpClient
     }
     
-    func fetchCurrentCityWeather(url : URL ,
-                          onSuccess  successCompletionHandler : @escaping (CurrentCity) -> Void,
+    func fetchCurrentCityWeatherForecast(url : URL ,
+                          onSuccess  successCompletionHandler : @escaping (CityForecast) -> Void,
                           onFailure failedHandler: @escaping(Error) -> Void )
     {
         
@@ -27,8 +27,8 @@ class NetworkManager {
             } else {
                 print(String(data: data!, encoding: .utf8)!)
                 do {
-                    let currentCity : CurrentCity = try JSONDecoder().decode(CurrentCity.self, from: data!)
-                    successCompletionHandler(currentCity)
+                    let cityforecast : CityForecast = try JSONDecoder().decode(CityForecast.self, from: data!)
+                    successCompletionHandler(cityforecast)
                 } catch {
                     print("Throwable Error \(error)")
                 }
@@ -36,8 +36,8 @@ class NetworkManager {
         }
     }
     
-    func fetchSearchedCitiesWeather(url : URL ,
-                          onSuccess  successCompletionHandler : @escaping (SearchedCity) -> Void,
+    func fetchCityWeather(url : URL ,
+                          onSuccess  successCompletionHandler : @escaping (CityWeather) -> Void,
                           onFailure failedHandler: @escaping(Error) -> Void )
     {
         
@@ -47,8 +47,8 @@ class NetworkManager {
             } else {
                 print(String(data: data!, encoding: .utf8)!)
                 do {
-                    let contacts : SearchedCity = try JSONDecoder().decode(SearchedCity.self, from: data!)
-                    successCompletionHandler(contacts)
+                    let cityWeather : CityWeather = try JSONDecoder().decode(CityWeather.self, from: data!)
+                    successCompletionHandler(cityWeather)
                 } catch {
                     print("Throwable Error \(error)")
                 }

@@ -9,5 +9,9 @@
 import UIKit
 
 class SearchCityViewModel: NSObject {
+  // let locationManager  = LocationManager()
+    override init() {
+        super.init()
 
+    }
 }

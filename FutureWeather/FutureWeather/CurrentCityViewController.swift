@@ -8,11 +8,14 @@
 
 import UIKit
 
-class CurrentCityViewController: UIViewController {
 
+class CurrentCityViewController: UIViewController {
+   
+    private var viewModel = CurrentCityViewModel(networkManager:NetworkManager(with:HttpClient(session: URLSession(configuration: URLSessionConfiguration.default))))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.ss
     }
 
 

@@ -45,7 +45,7 @@ class NetworkManager {
             if error != nil  {
                 failedHandler(error!)
             } else {
-                print(String(data: data!, encoding: .utf8)!)
+               print(String(data: data!, encoding: .utf8)!)
                 do {
                     let cityWeather : CityWeather = try JSONDecoder().decode(CityWeather.self, from: data!)
                     successCompletionHandler(cityWeather)

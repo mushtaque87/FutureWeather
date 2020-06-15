@@ -28,7 +28,7 @@ Run the unit test from the top bar to see the the unit test passing. The approch
 ---------------------------------------------------
 Code Coverage:
 
-Go to Edit Scheme and unable the Code Coverage in order to see the code coverage as shown below
+Go to Edit Scheme and unable the Code Coverage in order to see the code coverage as shown below`
 
 ![HeaderImage](CodeCoverage.png)
 

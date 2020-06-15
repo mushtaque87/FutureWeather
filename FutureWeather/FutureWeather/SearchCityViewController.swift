@@ -48,10 +48,8 @@ extension SearchCityViewController : UITableViewDelegate, UITableViewDataSource 
         let weather = self.viewModel.cityWeathertList[indexPath.row]
         cell.main.text = weather.weather?[0].main
         cell.desc.text =  weather.weather?[0].description
-        cell.temp.isHidden = true
-        cell.mintemp.isHidden = false
-        cell.maxtemp.isHidden = false
-        cell.wind.isHidden = false
+        cell.setUI(screenType: .SearchedCity)
+        
         cell.mintemp.text = String(format:"%.1f min",weather.main?.temp_min as! CVarArg)
         cell.maxtemp.text = String(format:"%.1f max",weather.main?.temp_max as! CVarArg)
         cell.wind.text =  String(format:"%.1f speed",weather.wind?.speed as! CVarArg)
@@ -76,21 +74,15 @@ extension SearchCityViewController : UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.viewModel.cityWeathertList.removeAll()
-        searchBar.resignFirstResponder()
+     searchBar.resignFirstResponder()
         let cities = Helper.parseCityName(from: searchBar.text!.trimmingCharacters(in: .whitespaces))
-        guard cities.count > 1 else {
-            self.showAlert()
+                guard cities.count > 1 else {
+                self.showAlert()
             return
         }
-        //  let networkQueue = OperationQueue()
-
-        cities.forEach { (city) in
-            DispatchQueue.global().async {
-                self.viewModel.fetchSearchedCityWeather(with: String(city).trimmingCharacters(in: .whitespaces))
-                }
-            }
-        }
+        self.viewModel.searchedCities(with: cities)
+        
+    }
         
 }
 

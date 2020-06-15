@@ -40,9 +40,7 @@ extension CurrentCityViewController : UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath) as! WeatherForecastTableViewCell
         let weather = self.viewModel.forecastList[indexPath.row]
-        cell.mintemp.isHidden = true
-        cell.maxtemp.isHidden = true
-        cell.wind.isHidden = true
+        cell.setUI(screenType: .CurrentCity)
         cell.main.text = weather.weather?[0].main
         cell.desc.text =  weather.weather?[0].description
         cell.temp.text = String(format:"%.1f",weather.main?.temp as! CVarArg)

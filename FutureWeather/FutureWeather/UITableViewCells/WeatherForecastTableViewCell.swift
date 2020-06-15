@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum ScreenType  {
+    case CurrentCity
+    case SearchedCity
+}
 
 class WeatherForecastTableViewCell: UITableViewCell {
     @IBOutlet weak var main: UILabel!
@@ -24,10 +28,10 @@ class WeatherForecastTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -39,8 +43,30 @@ class WeatherForecastTableViewCell: UITableViewCell {
             return  UIImage(named: "clear")!
         case "Clouds":
             return UIImage(named: "cloud")!
+        case "Haze":
+            return UIImage(named: "haze")!
+        case "Thunderstorm":
+            return UIImage(named: "thunderstorm")!
         default:
             return  UIImage(named: "clear")!
+        }
+    }
+    
+    func setUI(screenType:ScreenType) {
+        switch screenType {
+        case .CurrentCity:
+            self.temp.isHidden = false
+            self.mintemp.isHidden = true
+            self.maxtemp.isHidden = true
+            self.wind.isHidden = true
+            break
+        case .SearchedCity:
+            self.temp.isHidden = true
+            self.mintemp.isHidden = false
+            self.maxtemp.isHidden = false
+            self.wind.isHidden = false
+            break
+            
         }
     }
 }

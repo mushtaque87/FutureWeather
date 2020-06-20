@@ -35,7 +35,7 @@ class CurrentCityViewModel: NSObject , LocationDelegate {
     func fetchCurrentCityWeatherForecast(with location:CLLocation) {
         let url = URL(string:String(format: Constants.ServerApi.getCityWeatherForecast, location.coordinate.latitude,location.coordinate.longitude))!
         self.networkManager?.fetchCurrentCityWeatherForecast(url:url , onSuccess: { (forecast) in
-            //print(forecast)
+            Print.log(message: forecast)
             if let list =  forecast.list {
                 self.forecastList = list
                 DispatchQueue.main.async {

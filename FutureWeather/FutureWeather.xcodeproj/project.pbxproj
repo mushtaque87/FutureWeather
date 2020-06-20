@@ -38,6 +38,7 @@
 		8860400C24976B800015C8ED /* FutureWeatherCityWeatherForecastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860400B24976B800015C8ED /* FutureWeatherCityWeatherForecastTests.swift */; };
 		88604010249772240015C8ED /* WeatherForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860400E249772240015C8ED /* WeatherForecastTableViewCell.swift */; };
 		88604011249772240015C8ED /* WeatherForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8860400F249772240015C8ED /* WeatherForecastTableViewCell.xib */; };
+		88614045249C802100A3ED6A /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88614044249C802100A3ED6A /* Print.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		8860400B24976B800015C8ED /* FutureWeatherCityWeatherForecastTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutureWeatherCityWeatherForecastTests.swift; sourceTree = "<group>"; };
 		8860400E249772240015C8ED /* WeatherForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastTableViewCell.swift; sourceTree = "<group>"; };
 		8860400F249772240015C8ED /* WeatherForecastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherForecastTableViewCell.xib; sourceTree = "<group>"; };
+		88614044249C802100A3ED6A /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 			children = (
 				88604004249752170015C8ED /* Constants.swift */,
 				886040002497504B0015C8ED /* Helper.swift */,
+				88614044249C802100A3ED6A /* Print.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				88603FAA249745E90015C8ED /* SceneDelegate.swift in Sources */,
 				88603FE0249747E40015C8ED /* CurrentCity.swift in Sources */,
 				88603FD1249746DA0015C8ED /* CurrentCityViewModel.swift in Sources */,
+				88614045249C802100A3ED6A /* Print.swift in Sources */,
 				88603FE2249747E40015C8ED /* Main.swift in Sources */,
 				88603FD3249746F10015C8ED /* SearchCityViewModel.swift in Sources */,
 				88604010249772240015C8ED /* WeatherForecastTableViewCell.swift in Sources */,

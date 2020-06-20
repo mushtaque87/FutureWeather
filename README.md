@@ -1,5 +1,5 @@
 # FutureWeather
-Know the weather of your city and search other cities 
+An iOS application to Know the weather of your city and search other cities 
 
 
 ![HeaderImage](futureweather.png)
